@@ -7,6 +7,10 @@ public class VehicleCamera : MonoBehaviour
     [Header("Vehcile Cameras")]
     [SerializeField] private GameObject[] cameras;
     [SerializeField] private int cameraIndex;
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
     private void ChangeCamera()
     {
         if (cameraIndex < cameras.Length) 
