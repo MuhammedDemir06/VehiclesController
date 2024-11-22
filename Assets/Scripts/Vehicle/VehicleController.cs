@@ -85,7 +85,7 @@ public class VehicleController : MonoBehaviour
         {
             if (wheel.WheelAxel == Axel.Rear)
             {
-                wheel.WheelColl.motorTorque = InputManager.Instance.InputZ * 1000 * accleration * Time.deltaTime;
+                wheel.WheelColl.motorTorque = VehicleInputManager.Instance.InputZ * 1000 * accleration * Time.deltaTime;
             }
         }
     }
@@ -95,12 +95,12 @@ public class VehicleController : MonoBehaviour
         {
             if (wheel.WheelAxel == Axel.Front)
             {
-                var steer = InputManager.Instance.InputX * turnSensitivity * steerAngle;
+                var steer = VehicleInputManager.Instance.InputX * turnSensitivity * steerAngle;
                 wheel.WheelColl.steerAngle = Mathf.Lerp(wheel.WheelColl.steerAngle, steer, rotationPower);
             }
         }
         //SteeringWheel
-        steeringWheel.localRotation = Quaternion.Euler(0, 0, InputManager.Instance.InputX * steeringWheelTurnPower);
+        steeringWheel.localRotation = Quaternion.Euler(0, 0, VehicleInputManager.Instance.InputX * steeringWheelTurnPower);
     }
     private void WheelAnimate()
     {
